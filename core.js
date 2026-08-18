@@ -1,4 +1,15 @@
-
+async function loadScript(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
+        const scriptText = await response.text();
+        eval(scriptText);
+        console.log(`Скрипт загружен: ${url}`);
+    } catch (error) {
+        console.error(`Ошибка загрузки скрипта:`, error);
+    }
+}
+await loadScript('https://raw.githubusercontent.com/ggosted/retrofuncs/refs/heads/main/utils.js');
     const getButtonsNameMap = unsafeWindow.RFuncs.Utils.getButtonsNameMap;
     const delay = unsafeWindow.RFuncs.Utils.delay;
 let SELECTORS = {
