@@ -6,14 +6,14 @@ if (furni) {
     
     // Использование мебели
     if (furni.usable) {
-        actionWithFurni("Use");
-        actionWithFurni("Rotate");
-        actionWithFurni("Move");
+        furni.actionWithFurni("Use");
+        furni.actionWithFurni("Rotate");
+        furni.actionWithFurni("Move");
         //actionWithFurni("Pick up");
     }
     
     // Покупка мебели
     if (furni.purchasable) {
-        openCatalog();
+        furni.openCatalog();
     }
 }

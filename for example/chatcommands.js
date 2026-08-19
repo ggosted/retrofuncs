@@ -1,0 +1,16 @@
+const chat = new Chat(SELECTORS.chat)
+    .addChatCommand('/help', () => console.log('Help'))
+    .addChatCommand('/time', async function() {
+        const date = new Date()
+        const hours = String(date.getHours()).padStart(2, '0')
+        const minutes = String(date.getMinutes()).padStart(2, '0')
+        const day = String(date.getDate()).padStart(2, '0')
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const year = date.getFullYear()
+        
+        sendChatMessage("*raises hand with watch*")
+        await delay(300)
+        sendChatMessage("*looks at watch*")
+        await delay(300)
+        sendChatMessage(`*Exact time: ${day}.${month}.${year} ${hours}:${minutes}*`)
+    })
